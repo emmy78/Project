@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multiplication Table</h1>
+    <table id="multiplicationTable"></table>
+
+    <script>
+        function generateMultiplicationTable(size) {
+            const table = document.getElementById('multiplicationTable');
+
+            // Create table header
+            let headerRow = document.createElement('tr');
+            headerRow.appendChild(document.createElement('th')); // Empty top-left corner
+
+            for (let i = 1; i <= size; i++) {
+                let th = document.createElement('th');
+                th.textContent = i;
+                headerRow.appendChild(th);
+            }
+            table.appendChild(headerRow);
+
+            // Create table rows
+            for (let i = 1; i <= size; i++) {
+                let row = document.createElement('tr');
+                let headerCell = document.createElement('th');
+                headerCell.textContent = i;
+                row.appendChild(headerCell);
+
+                for (let j = 1; j <= size; j++) {
+                    let cell = document.createElement('td');
+                    cell.textContent = i * j;
+                    row.appendChild(cell);
+                }
+                table.appendChild(row);
+            }
+        }
+
+        // Generate a multiplication table of size 10
+        generateMultiplicationTable(10);
+    </script>
+</body>
+</html>
+
